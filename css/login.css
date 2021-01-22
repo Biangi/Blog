@@ -1,0 +1,10 @@
+body{
+    background: red;
+}
+#form{
+    margin-top: 200px;
+    margin: 0 auto;
+}
+.layui-btn{
+    background-color: red;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('head',{}) %>
+    <style>
+        
+
+        .layui-form {
+            height: 350px;
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .layui-input-block {
+            margin: 0;
+        }
+
+        .txt {
+
+            margin: 20px;
+        }
+
+        .span {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-container">
+        <div class="layui-row">
+
+            <form class="layui-form" action="">
+                <h1 class="txt">请登录</h1>
+                <div class="layui-form-item item">
+                    <!-- <label class="layui-form-label">用户名</label> -->
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required placeholder="请输入账号" autocomplete="off"
+                            class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item item">
+                    <!-- <label class="layui-form-label">密码</label> -->
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required placeholder="请输入密码" autocomplete="off"
+                            class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block blo">
+                        <button class="layui-btn">登录</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+                <span class="span">没有账号，<a href="/signIn.ejs">立即注册！</a></span>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

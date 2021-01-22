@@ -1,12 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <h1>Hello~~</h1>
-  </body>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <%- include('head',{}) %>
+<style>
+  #content{
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 30px;
+  }
+  .layui-table td{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgb(190, 187, 187);
+  }
+</style>
+</head>
+
+<body>
+  <%- include('nav',{}) %>
+
+  <div id="content">
+    
+    <table class="layui-table" >
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <!-- <thead>
+        <tr>
+          <th>昵称</th>
+          <th>加入时间</th>
+          <th>签名</th>
+        </tr> 
+      </thead> -->
+      <tbody>
+        <tr>
+          <td>贤心</td>
+          <td>2016-11-29</td>
+          <td>人生就像是一场修行</td>
+          <td>删除</td>
+          <td>编辑</td>
+        </tr>
+        
+        <tr>
+          <td>许闲心</td>
+          <td>2016-11-28</td>
+          <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+          <td>删除</td>
+          <td>编辑</td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </div>
+
+</body>
+
 </html>

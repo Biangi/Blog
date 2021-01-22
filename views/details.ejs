@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('head',{}) %>
+    <title>详情</title>
+    <style>
+        #content{
+            margin: 0 auto;
+            width: 80%;
+            border: 1px solid rgb(163, 163, 163);
+            border-radius: 6px;
+            margin-top: 30px;
+            padding: 15px;
+        }
+        .tit{
+            font-weight: 600;
+            font-size: 20px;
+        }
+        .deta{
+            margin: 10px 0px 20px 0;
+            font-size: 12px;
+        }
+        .deta span{
+            margin-right: 10px;
+        }
+        .txt{
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('nav',{}) %>
+    <div id="content">
+        <span class="tit">文章标题</span>
+        <div class="deta">
+             作者<span>111</span> <a>发布时间</a>
+        </div>
+       
+        <div class="txt">
+            文章内容.........
+
+        </div>
+    </div>
+</body>
+
+</html>
