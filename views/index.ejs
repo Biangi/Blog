@@ -7,16 +7,25 @@
   </title>
   <%- include('head',{}) %>
 <style>
+body{
+  height: 900px;
+  background: linear-gradient(to bottom right,  rgb(85, 187, 235),rgb(236, 182, 138));
+}
+
   #content{
     margin: 0 auto;
     width: 80%;
     padding-top: 30px;
   }
+  
   .layui-table td{
+    line-height: 50px;
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-bottom: 1px solid rgb(190, 187, 187);
+    border-bottom: 1px solid rgba(20,81,154,0.2);
+    /* border-bottom: 1px dashed rgba(20,81,154,0.4); */
+    
   }
 </style>
 </head>
@@ -43,7 +52,7 @@
         <tr>
           <td>贤心</td>
           <td>2016-11-29</td>
-          <td>人生就像是一场修行</td>
+          <td><a href="details">人生就像是一场修行</a></td>
           <td>删除</td>
           <td>编辑</td>
         </tr>

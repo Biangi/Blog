@@ -2,10 +2,14 @@
 <html lang="en">
 
 <head>
+    <title>
+        注册
+      </title>
     <%- include('head',{}) %>
     <style>
         body {
-            background: #b1c3dd;
+            height: 700px;
+            background: linear-gradient(to bottom right,  rgb(85, 187, 235),rgb(236, 182, 138));
         }
 
         .layui-form {
@@ -37,12 +41,12 @@
 <body>
     <div class="layui-container">
         <div class="layui-row">
-            <form class="layui-form" action="">
+            <form class="layui-form"  action="users/addUser" method="post">
                 <h1 class="txt">用户注册</h1>
                 <div class="layui-form-item item">
                     <!-- <label class="layui-form-label">用户名</label> -->
                     <div class="layui-input-block">
-                        <input type="text" name="title" required placeholder="请输入账号" autocomplete="off"
+                        <input type="text" name="userName" required placeholder="请输入账号" autocomplete="off"
                             class="layui-input">
                     </div>
                 </div>
@@ -50,7 +54,7 @@
                 <div class="layui-form-item item">
                     <!-- <label class="layui-form-label">密码</label> -->
                     <div class="layui-input-block">
-                        <input type="text" name="title" required placeholder="请输入密码" autocomplete="off"
+                        <input type="password" name="password" required placeholder="请输入密码" autocomplete="off"
                             class="layui-input">
                     </div>
 
@@ -59,7 +63,7 @@
                 <div class="layui-form-item item">
                     <!-- <label class="layui-form-label">密码</label> -->
                     <div class="layui-input-block">
-                        <input type="text" name="title" required placeholder="确认密码" autocomplete="off"
+                        <input type="password" name="passwordC" required placeholder="确认密码" autocomplete="off"
                             class="layui-input">
                     </div>
 
@@ -71,7 +75,7 @@
 
                     </div>
                 </div>
-                <span class="span">已有账号，<a href="/login.ejs">去登陆</a></span>
+                <span class="span">已有账号，<a href="/login">去登陆</a></span>
             </form>
         </div>
     </div>

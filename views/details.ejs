@@ -5,44 +5,35 @@
     <%- include('head',{}) %>
     <title>详情</title>
     <style>
-        #content{
+        .layui-card{
             margin: 0 auto;
             width: 80%;
             border: 1px solid rgb(163, 163, 163);
-            border-radius: 6px;
+            border-radius: 5px;
             margin-top: 30px;
             padding: 15px;
         }
-        .tit{
-            font-weight: 600;
-            font-size: 20px;
-        }
-        .deta{
-            margin: 10px 0px 20px 0;
-            font-size: 12px;
-        }
-        .deta span{
-            margin-right: 10px;
-        }
-        .txt{
-            font-size: 12px;
+        .right{
+            float: right;
         }
     </style>
 </head>
 
 <body>
     <%- include('nav',{}) %>
-    <div id="content">
-        <span class="tit">文章标题</span>
-        <div class="deta">
-             作者<span>111</span> <a>发布时间</a>
-        </div>
-       
-        <div class="txt">
-            文章内容.........
-
-        </div>
-    </div>
+   
+        <div class="layui-card">
+            <div class="layui-card-header">文章标题
+                <div class="right">2020-10-10-15:15</div>
+            </div>
+            
+            <div class="layui-card-body">
+              文章内容：卡片式面板面板通常用于非白色背景色的主体内<br>
+              从而映衬出边框投影
+            </div>
+          </div>
+              
+    
 </body>
 
 </html>

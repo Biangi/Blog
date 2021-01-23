@@ -2,9 +2,15 @@
 <html lang="en">
 
 <head>
+    <title>
+        登录
+      </title>
     <%- include('head',{}) %>
     <style>
-        
+        body {
+            height: 700px;
+            background: linear-gradient(to bottom right,  rgb(85, 187, 235),rgb(236, 182, 138));
+        }
 
         .layui-form {
             height: 350px;
@@ -25,14 +31,19 @@
         .span {
             margin: 0 auto;
         }
+        .layui-btn {
+            
+            width: 400px;
+        }
     </style>
 </head>
 
 <body>
     <div class="layui-container">
         <div class="layui-row">
+           
 
-            <form class="layui-form" action="">
+            <form class="layui-form">
                 <h1 class="txt">请登录</h1>
                 <div class="layui-form-item item">
                     <!-- <label class="layui-form-label">用户名</label> -->
@@ -45,7 +56,7 @@
                 <div class="layui-form-item item">
                     <!-- <label class="layui-form-label">密码</label> -->
                     <div class="layui-input-block">
-                        <input type="text" name="title" required placeholder="请输入密码" autocomplete="off"
+                        <input type="password" name="title" required placeholder="请输入密码" autocomplete="off"
                             class="layui-input">
                     </div>
                 </div>
@@ -53,11 +64,14 @@
                 <div class="layui-form-item">
                     <div class="layui-input-block blo">
                         <button class="layui-btn">登录</button>
-                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        
                     </div>
                 </div>
-                <span class="span">没有账号，<a href="/signIn.ejs">立即注册！</a></span>
+                <span class="span">没有账号，<a href="/signIn">立即注册！</a></span>
             </form>
+
+
+            
         </div>
     </div>
 </body>
