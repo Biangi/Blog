@@ -3,7 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  let userName = req.session.userName || ''
+
+  res.render('index', { userName });
 });
 
 //登录路由配置
@@ -18,11 +20,13 @@ router.get('/signIn', function(req, res, next) {
 
 //新增路由配置
 router.get('/news', function(req, res, next) {
-  res.render('news', {});
+  let userName = req.session.userName || ''
+  res.render('news', {userName});
 });
 
 //详情路由配置
 router.get('/details', function(req, res, next) {
-  res.render('details', {});
+  let userName = req.session.userName || ''
+  res.render('details', {userName});
 });
 module.exports = router;

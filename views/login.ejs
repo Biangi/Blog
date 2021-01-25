@@ -43,12 +43,12 @@
         <div class="layui-row">
            
 
-            <form class="layui-form">
+            <form class="layui-form" action="users/login" method="POST"> 
                 <h1 class="txt">请登录</h1>
                 <div class="layui-form-item item">
                     <!-- <label class="layui-form-label">用户名</label> -->
                     <div class="layui-input-block">
-                        <input type="text" name="title" required placeholder="请输入账号" autocomplete="off"
+                        <input type="text"  name="userName" placeholder="请输入账号" autocomplete="off"
                             class="layui-input">
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                 <div class="layui-form-item item">
                     <!-- <label class="layui-form-label">密码</label> -->
                     <div class="layui-input-block">
-                        <input type="password" name="title" required placeholder="请输入密码" autocomplete="off"
+                        <input type="password"  name="password" placeholder="请输入密码" autocomplete="off"
                             class="layui-input">
                     </div>
                 </div>
