@@ -45,7 +45,11 @@
 
 <body>
     <%- include('nav',{userName}) %>
-   
+
+
+
+
+
     <form action="article/add" method="POST">
         <div class="layui-container">
             <div class="layui-row">
@@ -55,14 +59,29 @@
                 </div>
 
                 <div class="area">
-                    <textarea class="ttarea" name="textarea" id=""></textarea>
+                    <textarea class="ttarea" name="textarea" id="editor"></textarea>
+
                 </div>
-                
-                <input type="file">
+
+                <!-- <input type="file" name="file"> -->
                 <button type="submit" class="layui-btn layui-btn-sm">发布</button>
             </div>
         </div>
     </form>
+    <script src="/libs/ckeditor5-build-classic-24.0.0/ckeditor5-build-classic/ckeditor.js"></script>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                ckfinder: {
+                    // Upload the images to the server using the CKFinder QuickUpload command.
+                    uploadUrl: 'article/load'
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 </body>
 
 </html>

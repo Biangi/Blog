@@ -8,6 +8,7 @@ let userSchema = new Schema({
     title: String,
     content: String,
     time:Date,
+    userName:String
     // img:Img
 })
 
