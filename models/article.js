@@ -9,7 +9,7 @@ let userSchema = new Schema({
     content: String,
     time:Date,
     userName:String
-    // img:Img
+    
 })
 
 // Model——————将会生成数据库集合名（复数）

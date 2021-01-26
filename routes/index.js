@@ -1,11 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  let userName = req.session.userName || ''
+let Article = require('../models/article');
 
-  res.render('index', { userName });
+/* GET home page. */
+router.get('/', async function(req, res, next) {
+  let data = await Article.find()
+  console.log(data);
+  let userName = req.session.userName || ''
+  res.render('index', { userName,data});
 });
 
 //登录路由配置

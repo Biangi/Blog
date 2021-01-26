@@ -1,8 +1,10 @@
 var express = require('express');
+var router = express.Router();
 const {
     now
 } = require('mongoose');
-const User = require('../models/article');
+let Article = require('../models/article');
+
 
 // 引入multiparty，multiparty：处理图片上传
 let Multiparty = require('multiparty');
@@ -13,7 +15,7 @@ const {
     format
 } = require('morgan');
 
-var router = express.Router();
+
 //添加博客接口
 router.post('/add', (req, res, next) => {
 
@@ -27,7 +29,7 @@ router.post('/add', (req, res, next) => {
         userName: req.session.userName
     }
 
-    let userI = new User(news)
+    let userI = new Article(news)
 
     // 上传至数据库
     userI.save((err, result) => {
@@ -55,9 +57,10 @@ router.post('/load', (req, res, next) => {
         // 读取文件流
         let rStream = fs.createReadStream(file.path)
         //拼接路径
-        let filePath = file.priginalFilename
+        let filePath = '/uploads/' + file.originalFilename
+        console.log(filePath);
         // 写入文件流
-        let wStream = fs.createReadStream('./public/uploads' + filePath)
+        let wStream = fs.createWriteStream('./public' + filePath)
         // 出发读写管道，实现上传
         rStream.pipe(wStream)
         // 将文件返回给ckeditor这个插件

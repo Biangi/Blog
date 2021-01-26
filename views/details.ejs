@@ -5,13 +5,20 @@
     <%- include('head',{userName}) %>
     <title>详情</title>
     <style>
+body{
+  height: 900px;
+  background: linear-gradient(to bottom right,  rgb(85, 187, 235),rgb(236, 182, 138));
+}
+
         .layui-card{
             margin: 0 auto;
             width: 80%;
-            border: 1px solid rgb(163, 163, 163);
+            border: 1px solid rgba(163, 163, 163.);
             border-radius: 5px;
             margin-top: 30px;
             padding: 15px;
+            background: rgba(255, 255, 255, 0.6);
+            
         }
         .right{
             float: right;
@@ -23,7 +30,8 @@
     <%- include('nav',{}) %>
    
         <div class="layui-card">
-            <div class="layui-card-header">文章标题
+            <div class="layui-card-header">
+                <h1>文章标题</h1>
                 <div class="right">2020-10-10-15:15</div>
             </div>
             
