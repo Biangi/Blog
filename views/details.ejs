@@ -5,12 +5,13 @@
     <%- include('head',{userName}) %>
     <title>详情</title>
     <style>
-body{
-  height: 900px;
-  background: linear-gradient(to bottom right,  rgb(85, 187, 235),rgb(236, 182, 138));
-}
+        html,
+        body {
+            height: 100%;
+            background: linear-gradient(to bottom right, rgb(85, 187, 235), rgb(236, 182, 138));
+        }
 
-        .layui-card{
+        .layui-card {
             margin: 0 auto;
             width: 80%;
             border: 1px solid rgba(163, 163, 163.);
@@ -18,29 +19,43 @@ body{
             margin-top: 30px;
             padding: 15px;
             background: rgba(255, 255, 255, 0.6);
-            
+
         }
-        .right{
+
+        .right {
             float: right;
+            margin-left: 50px;
+        }
+
+        .date {
+            margin: 10px 25px;
+        }
+
+        .author {
+            font-size: 20px;
+
         }
     </style>
 </head>
 
 <body>
     <%- include('nav',{}) %>
-   
-        <div class="layui-card">
-            <div class="layui-card-header">
-                <h1>文章标题</h1>
-                <div class="right">2020-10-10-15:15</div>
+
+    <div class="layui-card">
+        <div class="layui-card-header">
+            <h1><%= data.title %></h1>
+            <div class="right">
+                <a class="author">作者：<%- userName %></a>
+                <a class="date">发布时间：<%= data.tt %></a>
+
             </div>
-            
-            <div class="layui-card-body">
-              文章内容：卡片式面板面板通常用于非白色背景色的主体内<br>
-              从而映衬出边框投影
-            </div>
-          </div>
-              
+        </div>
+
+        <div class="layui-card-body">
+            <%- data.content %>
+        </div>
+    </div>
+
     
 </body>
 

@@ -3,83 +3,86 @@
 
 <head>
     <%- include('head',{}) %>
-    <title>写文章</title>
-    <style>
-        body {
-            height: 700px;
-            background: linear-gradient(to top left, rgb(161, 168, 233), #42b0e7);
+        <title>写文章</title>
+        <style>
+            html,body {
+                height: 100%;
+                background: linear-gradient(to top left, rgb(161, 168, 233), #42b0e7);
+            }
 
-        }
+            .layui-input-block {
+                margin: 30px;
+            }
 
-        .layui-input-block {
+            .area {
+                margin: 0 auto;
+                width: 1080px;
 
-            margin: 30px;
-        }
+            }
 
-        .area {
-            margin: 0 auto;
-            width: 1080px;
-        }
+            /* 文本框高度 */
+            .ck-content {
+                min-height: 260px;
+            }
 
-        .ttarea {
-            width: 1080px;
-            height: 260px;
-        }
+            .ttarea {
+                width: 1080px;
+               
+            }
 
-        .time {
-            display: inline-block;
-            margin-top: 10px;
-            color: rgb(58, 56, 56);
-            margin-left: 30px;
-        }
+            .time {
+                display: inline-block;
+                margin-top: 10px;
+                color: rgb(58, 56, 56);
+                margin-left: 30px;
+            }
 
-        button {
-            margin-top: 5px;
-            display: inline-block;
-            float: right;
-            margin-right: 30px;
-            width: 90px;
-        }
-        
-    </style>
+            button {
+                margin-top: 5px;
+                display: inline-block;
+                float: right;
+                margin-right: 30px;
+                width: 90px;
+            }
+        </style>
 </head>
 
 <body>
     <%- include('nav',{userName}) %>
 
 
- <form action="article/add" method="POST">
-        <div class="layui-container">
-            <div class="layui-row">
-                <div class="layui-input-block">
-                    <input type="text" name="title" required lay-verify="required" placeholder="请输入文章标题"
-                        autocomplete="off" class="layui-input">
+        <form action="article/add" method="POST">
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" placeholder="请输入文章标题"
+                            autocomplete="off" class="layui-input">
+                    </div>
+
+                    <div class="area">
+                        <textarea class="ttarea" name="textarea" id="editor"></textarea>
+
+                    </div>
+
+                    <!-- <input type="file" name="file"> -->
+                    <button type="submit" class="layui-btn layui-btn-sm">发布</button>
                 </div>
-
-                <div class="area">
-                    <textarea class="ttarea" name="textarea" id="editor"></textarea>
-
-                </div>
-
-                <!-- <input type="file" name="file"> -->
-                <button type="submit" class="layui-btn layui-btn-sm">发布</button>
             </div>
-        </div>
-    </form>
-    <script src="/libs/ckeditor5-build-classic-24.0.0/ckeditor5-build-classic/ckeditor.js"></script>
+        </form>
+        <script src="/libs/ckeditor5-build-classic-24.0.0/ckeditor5-build-classic/ckeditor.js"></script>
 
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'), {
-                ckfinder: {
-                    // Upload the images to the server using the CKFinder QuickUpload command.
-                    uploadUrl: 'article/load'
-                }
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
+        <script>
+            ClassicEditor
+                .create(document.querySelector('#editor'), {
+                    ckfinder: {
+                        // Upload the images to the server using the CKFinder QuickUpload command.
+                        uploadUrl: 'article/load'
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
 </body>
 
 </html>

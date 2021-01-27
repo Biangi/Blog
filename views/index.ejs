@@ -3,49 +3,67 @@
 
 <head>
   <title>
-   
+
   </title>
   <%- include('head',{}) %>
-<style>
-body{
-  height: 700px;
-  background: linear-gradient(to bottom right,  rgb(85, 187, 235),rgb(236, 182, 138));
-  /* background-image:url('/images/www.jpg'); */
-  
-}
+  <style>
+    html,
+    body {
+      height: 100%;
 
-  #content{
-    margin: 0 auto;
-    width: 80%;
-    padding-top: 30px;
-  }
-  .layui-table{
-    background:rgb(255, 255, 255, 0.7);
-  }
+      background: linear-gradient(to bottom right, rgb(85, 187, 235), rgb(236, 182, 138));
+      /* background-image:url('/images/www.jpg'); */
 
-  .layui-table td{
-    line-height: 50px;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1px solid rgba(20,81,154,0.2);
-    /* border-bottom: 1px dashed rgba(20,81,154,0.4); */
-    
-  }
-</style>
+    }
+
+    #content {
+      margin: 0 auto;
+      width: 80%;
+      padding-top: 30px;
+    }
+
+    .layui-table {
+      background: rgb(255, 255, 255, 0.7);
+    }
+
+    .layui-table {
+      line-height: 50px;
+
+
+    }
+
+    .layui-table td {
+      text-align: center;
+
+    }
+
+    .layui-table tbody tr .title {
+     
+      max-width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+ 
+    .page {
+      float: right;
+    }
+  </style>
 </head>
 
 <body>
   <%- include('nav',{}) %>
 
   <div id="content">
-    
-    <table class="layui-table" >
-      <colgroup>
+
+    <table class="layui-table " lay-skin="line">
+      <!-- <colgroup>
         <col width="150">
         <col width="200">
         <col>
-      </colgroup>
+      </colgroup> -->
       <!-- <thead>
         <tr>
           <th>昵称</th>
@@ -54,21 +72,55 @@ body{
         </tr> 
       </thead> -->
       <tbody>
-       
-        <% data.map(item => { %>
+
+        <% data.blogList.map(item=> { %>
         <tr>
-         <td>
-            <%= item.title %>
+
+          <td class="title">
+            <a href="/details/?_id=<%= item._id %>">
+              <%- item.title %>
+            </a>
+            
           </td>
-          <td><%= item.time %></td>
-          <td><%= item.content %></td>
-          <td>删除</td>
-          <td>编辑</td>
-         </tr>
-         <% }) %>
+
+
+          <td class="time">
+            <%= item.tt %>
+          </td>
+          <td class="contents">
+            <%- item.content %>
+          </td>
+          <td>
+            <a href="/news/?_id=<%= item._id %>">编辑</a>
+            <a href="#">删除</a>
+          </td>
+
+        </tr>
+        <% }) %>
       </tbody>
     </table>
-    
+
+    <div class="page">
+      <div class="">
+
+        <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
+          <i class="layui-icon layui-icon-left"></i>
+          <tton>
+            <% for (i=1 ; i <= data.PagesTotle; i++) { %>
+            <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
+              <i class="layui-icon">
+                <a href="/?page=<%=i%>" class="<%- data.currPage==i? 'active': '';%>"> <%= i %> </a>
+              </i>
+              <tton>
+                <% } %>
+                <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
+                  <i class="layui-icon layui-icon-right"></i>
+                  <tton>
+
+      </div>
+
+    </div>
+
   </div>
 
 </body>

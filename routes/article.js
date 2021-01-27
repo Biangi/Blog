@@ -34,7 +34,8 @@ router.post('/add', (req, res, next) => {
     // 上传至数据库
     userI.save((err, result) => {
         if (!err) {
-            res.send(result)
+            // res.send(result)
+            res.redirect('/news')
         }
     })
 })
