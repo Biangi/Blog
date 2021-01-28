@@ -21,23 +21,51 @@ router.post('/add', (req, res, next) => {
 
     // res.render('add', {date});
     // console.log(date);
+    let nId = req.body.dId || '';
+    console.log(nId);
 
-    let news = {
-        title: req.body.title,
-        content: req.body.textarea,
-        time: Date.now(),
-        userName: req.session.userName
+    //新增
+    if (!nId) {
+        var articleData = {
+            title: req.body.title,
+            content: req.body.textarea,
+            time: Date.now(),
+            userName: req.session.userName
+        }
+        let articleDbdate = new Article(articleData)
+
+        //保存
+        articleDbdate.save((err, result) => {
+            if (!err) {
+                res.redirect('/')
+            }
+        })
+    } else { //编辑
+        let page = req.body.page
+        // _id  查找一条数据并修改内容
+        // 新数据获取
+        let articleData = {
+            title: req.body.title,
+            content: req.body.textarea,
+        }
+
+        Article.findByIdAndUpdate(nId, articleData, {new:true}, (err, result) => {
+            if (!err) {
+                res.redirect(`/?page=${page}`)
+            }
+        })
     }
 
-    let userI = new Article(news)
 
-    // 上传至数据库
-    userI.save((err, result) => {
-        if (!err) {
-            // res.send(result)
-            res.redirect('/news')
-        }
-    })
+    // let userI = new Article(news)
+
+    // // 上传至数据库
+    // userI.save((err, result) => {
+    //     if (!err) {
+    //         // res.send(result)
+    //         res.redirect('/deta')
+    //     }
+    // })
 })
 
 // 上传文章路由接口
@@ -71,6 +99,20 @@ router.post('/load', (req, res, next) => {
                 url: filePath
             }) //将服务器端图片地址拿给文本框，使得文章能够正确拿到插图
         })
+    })
+})
+
+
+// 删除文章接口
+router.get('/delete',(req,res,next) => {
+    let id = req.query._id
+    let page = req.query.page
+    console.log(id,page);
+    // 删除一条数据
+    Article.deleteOne({_id:id}, (err,result) => {
+        if (!err) {
+            res.redirect(`/?page${page}`)
+        }
     })
 })
 module.exports = router
